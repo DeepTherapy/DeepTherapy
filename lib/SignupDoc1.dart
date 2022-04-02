@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:welcome/SignupDoc2.dart';
+import 'SignupDoc2.dart';
 
 class SignUpDoc1 extends StatelessWidget {
   const SignUpDoc1({ Key? key }) : super(key: key);

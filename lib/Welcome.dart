@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:welcome/Signup-Signin.dart';
+import 'Signup-Signin.dart';
 
 
 class Welcome  extends StatelessWidget {

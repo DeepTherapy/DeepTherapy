@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:welcome/LoginDoc.dart';
-import 'package:welcome/SignupDoc1.dart';
+import 'LoginDoc.dart';
+import 'SignupDoc1.dart';
 
 
 class LoginSignUp extends StatelessWidget {
