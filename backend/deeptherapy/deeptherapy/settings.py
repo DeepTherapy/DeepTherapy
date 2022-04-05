@@ -14,7 +14,14 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+import django_heroku # add in the beginning
 
+... # denotes rest of the code in between
+
+# add these lines at end
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+django_heroku.settings(locals())
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -29,6 +36,7 @@ ALLOWED_HOSTS = ['10.0.2.2', '127.0.0.1']
 
 
 # Application definition
+# AUTH_USER_MODEL='UserManagement.Users'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -37,7 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
+    'rest_framework', 
+    "rest_framework.authtoken",
     'doctors'
 ]
 
@@ -82,7 +91,14 @@ DATABASES = {
     }
 }
 
-
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+'DEFAULT_PERMISSION_CLASSES': [
+    'rest_framework.permissions.IsAuthenticated',
+]
+}
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
