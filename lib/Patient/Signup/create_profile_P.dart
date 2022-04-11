@@ -43,6 +43,7 @@ import 'package:image_picker/image_picker.dart';
   padding: EdgeInsets.all(15.0),
   shape: CircleBorder(),
 ), Text("Upload Image")]):Column(children: [CircleAvatar(
+  
     radius: 45.0,
     
     child: ClipRRect(
@@ -55,11 +56,11 @@ import 'package:image_picker/image_picker.dart';
 )))
 
 //change to column children and add retry icon
-      
-      
-      
-      ,
-      Container(width: 420,padding: EdgeInsets.all(16), child: Column(children: [TextFormField(decoration: InputDecoration(labelText: 'Full Name'),
+    
+    
+    
+    
+      ,Container(width: 420,padding: EdgeInsets.all(16), child: Column(children: [TextFormField(decoration: InputDecoration(labelText: 'Full Name'),
                    keyboardType: TextInputType.name,), TextFormField(decoration: InputDecoration(suffixIcon: Icon(Icons.email, size: 20),labelText: 'Email'),
                    keyboardType: TextInputType.emailAddress,), MyStatefulWidget(),TextFormField(decoration: InputDecoration(labelText: 'Password'),
                    keyboardType: TextInputType.emailAddress,),TextFormField(decoration: InputDecoration(labelText: 'Confirm Password'),

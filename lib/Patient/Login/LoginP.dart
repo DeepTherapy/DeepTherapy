@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'SignupDoc2.dart';
 
-class SignUpDoc1 extends StatelessWidget {
-  const SignUpDoc1({ Key? key }) : super(key: key);
+class LoginP extends StatelessWidget {
+  const LoginP({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +24,7 @@ alignment: Alignment.bottomCenter,
       Padding(
         padding: const EdgeInsets.all(10),
         child: Column(children: [
-          Text("Sign Up" , 
+          Text("Login" , 
           style:TextStyle(fontWeight: FontWeight.bold  ,fontFamily: 'SourceSansPro-Black',
 color: Colors.black54,fontSize: 25),
           textAlign: TextAlign.center),
@@ -40,10 +39,9 @@ color: Colors.black54,fontSize: 25),
 
   
       Container(width: 420,padding: EdgeInsets.all(16), child: Column(children: [
-                  TextFormField(decoration: InputDecoration(labelText: 'Full Name'),
-                   keyboardType: TextInputType.name), TextFormField(obscureText: true,decoration: InputDecoration(labelText: 'email'),
-                   keyboardType: TextInputType.name), TextFormField(obscureText: true,decoration: InputDecoration(labelText: 'Create Password'),
-                    keyboardType: TextInputType.name), TextFormField(obscureText: true,decoration: InputDecoration(labelText: 'Confirm Password'),
+                  TextFormField(decoration: InputDecoration(labelText: 'Email'),
+                   keyboardType: TextInputType.name), TextFormField(obscureText: true,decoration: InputDecoration(labelText: 'Enter Password'),
+                
 
                    keyboardType: TextInputType.name,),
                    SizedBox(height: 35),
@@ -52,26 +50,20 @@ color: Colors.black54,fontSize: 25),
                                borderRadius : BorderRadius.circular(10),
                                side:BorderSide(color: Colors.blue),
                             
-                      )),onPressed: (){
-                         
-            Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => const SignupDoc2()),
-  );
-                      }, 
+                      )),onPressed: (){}, 
              child: new Text("Confirm"),)]
                    )
                    ),
                     Row(
               children: <Widget>[
-                const Text('Already have an acount ?'),
+                const Text("Don't have an account?"),
                 TextButton(
                   child: const Text(
-                    'Login',
+                    'Sign up',
                     style: TextStyle(fontSize: 15),
                   ),
                   onPressed: () {
-                    //signup screen
+                   
                   },
                 )
               ],
@@ -82,8 +74,5 @@ color: Colors.black54,fontSize: 25),
       ),
 
       );
-      
-      
-    
   }
 }

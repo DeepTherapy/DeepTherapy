@@ -1,17 +1,15 @@
-import 'package:deeptherapy/Doctor/Login/LoginDoc.dart';
-import 'package:deeptherapy/Patient/Signup/Link_Patient.dart';
-import 'package:deeptherapy/Doctor/Signup/Signup-Signin.dart';
-import 'package:deeptherapy/Welcome.dart';
-import 'Patient/Signup/create_profile_P.dart';
-import  'Doctor/Login/LoginDoc.dart';
 import 'package:flutter/material.dart';
-import 'repository/user_repository.dart';
+import 'package:deeptherapy/repository/user_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'bloc/authentication_bloc.dart';
-import 'splash/splash.dart';
-import 'common/loading_indicator.dart';
+import 'package:deeptherapy/bloc/authentication_bloc.dart';
+import 'package:deeptherapy/splash/splash.dart';
+import 'package:deeptherapy/login/login_page.dart';
+import 'package:deeptherapy/home/home.dart';
+import 'package:deeptherapy/common/common.dart';
+
 void main() {
   final userRepository = UserRepository();
+  
   runApp(
       BlocProvider<AuthenticationBloc>(
         create: (context) {
@@ -19,18 +17,19 @@ void main() {
               userRepository: userRepository
           )..add(AppStarted());
         },
-        child: MyApp(userRepository: userRepository)),
+        child: App(userRepository: userRepository)),
       
   );
 }
 
-class MyApp extends StatelessWidget {
+class App extends StatelessWidget {
   final UserRepository userRepository;
 
-  MyApp({Key? key, required this.userRepository})
+  App({Key? key, required this.userRepository})
       : assert(userRepository != null),
         super(key: key);
-  // This widget is the root of your application.
+
+  @override
   Widget build (BuildContext context) {
     var bloc = BlocBuilder<AuthenticationBloc, AuthenticationState>(
         builder: (context, state) {
@@ -41,10 +40,10 @@ class MyApp extends StatelessWidget {
             return SplashPage();
           }
           if (state is AuthenticationAuthenticated) {
-            return SplashPage();
+            return HomePage();
           }
           if (state is AuthenticationUnauthenticated) {
-            return Welcome();
+            return LoginPage(userRepository: userRepository,key: Key('login'));
           }
           return LoadingIndicator();
         },
@@ -53,9 +52,11 @@ class MyApp extends StatelessWidget {
      return  BlocProvider<AuthenticationBloc>(
     create: (context) => AuthenticationBloc(userRepository: userRepository),
     child:MaterialApp(
-      
+      theme: ThemeData(
+        primarySwatch: Colors.red,
+        brightness: Brightness.dark,
+      ),
       home: bloc
      ));
   }
 }
-

@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.black,
         scaffoldBackgroundColor: Colors.white
       ),
-      home:CreateProfile()
+      home:()
     );
     
  } }

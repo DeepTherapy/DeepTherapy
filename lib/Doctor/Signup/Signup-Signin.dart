@@ -1,18 +1,22 @@
+import 'package:deeptherapy/repository/user_repository.dart';
 import 'package:flutter/material.dart';
-import 'LoginDoc.dart';
+import '../Login/login_page.dart';
 import 'SignupDoc1.dart';
-
+import 'package:deeptherapy/bloc/authentication_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginSignUp extends StatelessWidget {
-  
-  const LoginSignUp({ Key? key }) : super(key: key);
+  final UserRepository userRepository;
+  LoginSignUp({ Key? key ,required this.userRepository}) : super(key: key);
   
 
   static const route_name = "/welcome";
   @override
   Widget build(BuildContext context) {
     String ptext = "";
-    return Scaffold(
+    return BlocProvider<AuthenticationBloc>(
+    create: (context) => AuthenticationBloc(userRepository: userRepository),
+    child: Scaffold(
       
       body:Column(children: [Expanded(child: Image.asset("../assets/images/deep.png"
       ),
@@ -40,7 +44,7 @@ color: Colors.black54,fontSize: 25),
                    {
             Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => const LoginDoc()),
+    MaterialPageRoute(builder: (context) => LoginPage(key: Key("login"),userRepository: userRepository,)),
   );
          
                 },
@@ -105,6 +109,6 @@ color: Colors.black54,fontSize: 25),
 
 
 
-    ]));
+    ])));
   }
 }

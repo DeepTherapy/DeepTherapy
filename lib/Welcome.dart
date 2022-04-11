@@ -1,6 +1,7 @@
+import 'package:deeptherapy/repository/user_repository.dart';
 import 'package:flutter/material.dart';
-import 'Signup-Signin.dart';
-
+import 'Doctor/Signup/Signup-Signin.dart';
+import 'splash/splash.dart';
 
 class Welcome  extends StatelessWidget {
   
@@ -63,7 +64,7 @@ color: Colors.black54,fontSize: 29),
          child:ElevatedButton(onPressed: () {
             Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => const LoginSignUp()),
+    MaterialPageRoute(builder: (context) => LoginSignUp(userRepository: UserRepository(),)),
   );
          },
            child:Text("Psychotherapist",
