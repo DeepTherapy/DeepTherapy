@@ -1,5 +1,6 @@
 import 'package:deeptherapy/database/user_database.dart';
 import 'package:deeptherapy/models/user_model.dart';
+import 'package:sqflite/sqflite.dart';
 
 class UserDao {
   final dbProvider = DatabaseProvider.dbProvider;
@@ -8,7 +9,7 @@ class UserDao {
     final db = await dbProvider.database;
     print("heyy");
     print(db);
-    var result = db?.insert(userTable, user.toDatabaseJson());
+    var result = db?.insert(userTable, user.toDatabaseJson(), conflictAlgorithm: ConflictAlgorithm.replace);
     return result;
   }
 
