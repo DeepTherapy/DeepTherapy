@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:deeptherapy/Doctor/Login/LoginDoc.dart';
 import 'package:deeptherapy/Patient/Signup/Link_Patient.dart';
 import 'package:deeptherapy/Doctor/Signup/Signup-Signin.dart';
@@ -10,20 +12,32 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc/authentication_bloc.dart';
 import 'splash/splash.dart';
 import 'common/loading_indicator.dart';
+import 'Patient/home/home.dart';
 void main() {
   final userRepository = UserRepository();
-  runApp(
-      BlocProvider<AuthenticationBloc>(
-        create: (context) {
-          return AuthenticationBloc(
-              userRepository: userRepository
-          )..add(AppStarted());
-        },
-        child: MyApp(userRepository: userRepository)),
-      
-  );
-}
+  
+  runApp(Patient());}
+  // runApp takes as argument Homescreen for patient side and BlocProvider for Doctor Side
+ class Patient extends StatelessWidget{
 
+ @override
+  Widget build(BuildContext context) {
+
+    return MaterialApp(
+      title: 'Login App',theme: ThemeData(
+        primaryColor: Colors.black,),
+        home: HomeScreen(),);
+  //     BlocProvider<AuthenticationBloc>(
+  //       create: (context) {
+  //         return AuthenticationBloc(
+  //             userRepository: userRepository
+  //         )..add(AppStarted());
+  //       },
+  //       child: MyApp(userRepository: userRepository)),
+      
+  // );
+}
+ }
 class MyApp extends StatelessWidget {
   final UserRepository userRepository;
 
