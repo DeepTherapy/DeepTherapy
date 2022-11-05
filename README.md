@@ -1,16 +1,11 @@
 # deeptherapy
+![cover_page01](https://user-images.githubusercontent.com/47258547/200143069-7052fa30-9da8-4f79-af7d-3a06984a918c.png)
+A reliable solution for a fluid communication between psychotherapists and their patients with various strategies to maintain motivation and continue treatment.
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This mobile application is built using Flutter with Django as Backend. 
+It includes the following modules:
+Sign up/Sign in
+Chat System
+Recommender System
+NLP & Chatbot
+Decision Tree for Quiz Evaluation
